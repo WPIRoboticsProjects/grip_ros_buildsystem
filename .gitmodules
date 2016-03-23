@@ -1,3 +1,0 @@
-[submodule "grip_msgs"]
-	path = grip_msgs
-	url = https://github.com/WPIRoboticsProjects/grip_msgs
