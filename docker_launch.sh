@@ -13,11 +13,11 @@ DOCKER_VOLUMES="-v $WORKING_DIR/grip_msgs:/root/catkin_ws/src/grip_msgs -v $WORK
 if [ $# -eq 0 ]; then
 	echo "Running GRIP ROS Docker Container!\n";
 	echo "WARNING: Any changes you make here will not be preserved.";
-	docker run --rm -it $DOCKER_VOLUMES ros-workspace;
+	docker run --rm -it $DOCKER_VOLUMES jlleitschuh/ros-workspace;
 
 elif [ "$1" = "build" ]; then # If using build then run the build script
 	echo "Building GRIP Messages";
-	CONTAINER_ID=$(docker run -d -it $DOCKER_VOLUMES ros-workspace)
+	CONTAINER_ID=$(docker run -d -it $DOCKER_VOLUMES jlleitschuh/ros-workspace)
 	echo "Container ID: $CONTAINER_ID"
 	function finish { # Create an exit hook that will run even if something fails.
 		echo "Stopping docker container"
